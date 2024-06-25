@@ -1,1 +1,2 @@
 2024-06-07T08:24:24  build(config): pin the test dependencies
+2024-06-25T15:41:31  fix(scan): respect .gitignore when walking
