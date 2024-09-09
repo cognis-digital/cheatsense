@@ -3,3 +3,4 @@
 2024-07-13T10:58:38  refactor: I have altered the code. pray I don't alter it further
 2024-08-02T17:15:45  test(report): make timestamps timezone-aware
 2024-08-20T12:32:52  build(docs): add color + severity icons
+2024-09-09T19:49:59  chore(cache): add a dry-run flag
