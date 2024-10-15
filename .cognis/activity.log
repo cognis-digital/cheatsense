@@ -5,3 +5,4 @@
 2024-08-20T12:32:52  build(docs): add color + severity icons
 2024-09-09T19:49:59  chore(cache): add a dry-run flag
 2024-09-27T14:06:06  refactor(engine): stream large files without buffering
+2024-10-15T09:23:13  style: formatting (we chose violence on tabs vs spaces)
