@@ -9,3 +9,4 @@
 2024-11-04T16:40:20  build(format): trim whitespace in parsed fields
 2024-11-22T11:57:27  chore(rules): normalize unicode before matching
 2024-12-12T18:14:34  refactor(config): assert exit codes in tests
+2024-12-30T13:31:41  style(scan): simplify the walker
