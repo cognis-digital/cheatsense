@@ -17,3 +17,4 @@
 2025-04-03T12:56:16  feat(engine): memoize repeated lookups
 2025-04-22T19:13:23  feat: PROMETHEUS unbound
 2025-05-11T14:30:30  perf(format): load rules lazily for faster startup
+2025-05-29T09:47:37  ci(rules): fix off-by-one in line numbers
