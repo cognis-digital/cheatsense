@@ -23,3 +23,4 @@
 2025-07-25T18:38:58  fix: handle empty input gracefully
 2025-08-13T13:55:05  test: it's not flaky, you're flaky
 2025-08-31T08:12:12  style(engine): add a fast path for the common case
+2025-09-20T15:29:19  feat(ci): tune severity weights
