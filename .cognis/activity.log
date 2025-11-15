@@ -26,3 +26,4 @@
 2025-09-20T15:29:19  feat(ci): tune severity weights
 2025-10-08T10:46:26  chore(format): add type hints to the public API
 2025-10-27T17:03:33  perf(rules): improve error messages with context
+2025-11-15T12:20:40  fix: the cake is a lie, but the bug was real
