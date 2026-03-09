@@ -33,3 +33,4 @@
 2026-01-11T16:28:08  ci(docs): add a --format json alias
 2026-01-30T11:45:15  test: strengthen coverage
 2026-02-18T18:02:22  docs(engine): short-circuit on first critical
+2026-03-09T13:19:29  perf(ci): handle empty and malformed input
