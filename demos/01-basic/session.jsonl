@@ -1,0 +1,26 @@
+{"player": "honest_hank", "t": 0.00, "action": "fire", "reaction": 0.243, "yaw": 10.0, "pitch": 2.0, "hit": false}
+{"player": "honest_hank", "t": 0.71, "action": "fire", "reaction": 0.288, "yaw": 18.0, "pitch": 1.5, "hit": true}
+{"player": "honest_hank", "t": 1.55, "action": "fire", "reaction": 0.201, "yaw": 25.0, "pitch": 3.0, "hit": false}
+{"player": "honest_hank", "t": 2.49, "action": "fire", "reaction": 0.331, "yaw": 22.0, "pitch": 2.2, "hit": true}
+{"player": "honest_hank", "t": 3.30, "action": "fire", "reaction": 0.276, "yaw": 31.0, "pitch": 1.0, "hit": false}
+{"player": "honest_hank", "t": 4.42, "action": "fire", "reaction": 0.219, "yaw": 29.0, "pitch": 2.8, "hit": true}
+{"player": "bot_betty", "t": 0.000, "action": "click"}
+{"player": "bot_betty", "t": 0.100, "action": "click"}
+{"player": "bot_betty", "t": 0.200, "action": "click"}
+{"player": "bot_betty", "t": 0.300, "action": "click"}
+{"player": "bot_betty", "t": 0.400, "action": "click"}
+{"player": "bot_betty", "t": 0.500, "action": "click"}
+{"player": "bot_betty", "t": 0.600, "action": "click"}
+{"player": "bot_betty", "t": 0.700, "action": "click"}
+{"player": "bot_betty", "t": 0.800, "action": "click"}
+{"player": "bot_betty", "t": 0.900, "action": "click"}
+{"player": "bot_betty", "t": 1.000, "action": "click"}
+{"player": "bot_betty", "t": 1.100, "action": "click"}
+{"player": "bot_betty", "t": 1.200, "action": "click"}
+{"player": "bot_betty", "t": 1.300, "action": "click"}
+{"player": "aimbot_alice", "t": 0.00, "action": "fire", "reaction": 0.045, "yaw": 5.0, "pitch": 0.0, "hit": true}
+{"player": "aimbot_alice", "t": 0.03, "action": "snap", "yaw": 160.0, "pitch": 1.0, "hit": true}
+{"player": "aimbot_alice", "t": 1.10, "action": "fire", "reaction": 0.052, "yaw": 162.0, "pitch": 1.5, "hit": true}
+{"player": "aimbot_alice", "t": 1.13, "action": "snap", "yaw": 20.0, "pitch": 0.5, "hit": true}
+{"player": "aimbot_alice", "t": 2.20, "action": "fire", "reaction": 0.061, "yaw": 22.0, "pitch": 2.0, "hit": false}
+{"player": "aimbot_alice", "t": 3.05, "action": "fire", "reaction": 0.300, "yaw": 30.0, "pitch": 1.0, "hit": true}
