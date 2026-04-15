@@ -35,3 +35,4 @@
 2026-02-18T18:02:22  docs(engine): short-circuit on first critical
 2026-03-09T13:19:29  perf(ci): handle empty and malformed input
 2026-03-27T08:36:36  ci(format): add a --quiet mode
+2026-04-15T15:53:43  fix(rules): handle CRLF line endings
