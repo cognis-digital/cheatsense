@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/cheatsense",
+  "version": "0.2.0",
+  "description": "JavaScript port of cheatsense (Cognis Neural Suite)",
+  "bin": {
+    "cheatsense": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
