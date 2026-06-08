@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: cheatsense, labels: { app: cheatsense } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: cheatsense } }
+  template:
+    metadata: { labels: { app: cheatsense } }
+    spec:
+      containers:
+        - name: cheatsense
+          image: ghcr.io/cognis-digital/cheatsense:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: cheatsense }
+spec:
+  selector: { app: cheatsense }
+  ports: [{ port: 80, targetPort: 8000 }]
