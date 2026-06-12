@@ -20,7 +20,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import asdict
 
 from cheatsense import TOOL_NAME, TOOL_VERSION, DEFAULT_THRESHOLDS
 from cheatsense.core import analyze_file

@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-cheatsense
+pip install "git+https://github.com/cognis-digital/cheatsense.git"
 cheatsense scan .            # → prioritized findings in seconds
 ```
 
@@ -48,7 +48,7 @@ Commercial anti-cheats are black boxes; indie game studios have nothing. cheatse
 ## Quick start
 
 ```bash
-pip install cognis-cheatsense
+pip install "git+https://github.com/cognis-digital/cheatsense.git"
 cheatsense --version
 cheatsense scan .                       # scan current project
 cheatsense scan . --format json         # machine-readable
