@@ -20,6 +20,39 @@ pip install cognis-cheatsense
 cheatsense scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install:**
+
+   ```bash
+   pip install -e .
+   ```
+
+2. **Scan a session input log** (JSONL lines, or a JSON list/object) with the `scan` subcommand to flag anomalous input signatures — inhuman reaction time, robotic cadence, aim snaps, impossible APM, autoclicker intervals:
+
+   ```bash
+   cheatsense scan demos/01-basic/session.jsonl
+   ```
+
+3. **Tune the detection thresholds** — `--flag-score` (0-100 cheat-likelihood at which a player is flagged), `--max-apm` (sustained APM ceiling), `--min-reaction-ms` (human reaction floor), `--max-interval-cv` (interval regularity):
+
+   ```bash
+   cheatsense scan session.jsonl --flag-score 40 --max-apm 600
+   ```
+
+4. **Read the result.** The table lists each `PLAYER`, event count, cheat `SCORE`, `FLAG`, and finding codes, with a detail block per flagged player. Use `--format json` for piping. The process **exits 1 when one or more players are flagged**, **0 when clean**, **2 on input error**:
+
+   ```bash
+   cheatsense scan session.jsonl --format json | jq '.flagged_count'
+   ```
+
+5. **Use it in CI / batch review** — fail a match-review job when any player trips the anti-cheat heuristics:
+
+   ```bash
+   cheatsense scan session.jsonl --format json || { echo "Cheating suspected"; exit 1; }
+   ```
+
+
 ## Contents
 
 - [Why cheatsense?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
