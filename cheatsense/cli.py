@@ -62,6 +62,12 @@ def _build_parser() -> argparse.ArgumentParser:
         help="path to the session log (.jsonl lines, or a JSON list/object)",
     )
     scan.add_argument(
+        "--format",
+        choices=("table", "json"),
+        default="table",
+        help="output format (default: table)",
+    )
+    scan.add_argument(
         "--flag-score",
         type=float,
         default=DEFAULT_THRESHOLDS["flag_score"],
