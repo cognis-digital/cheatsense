@@ -84,8 +84,8 @@ def test_findings_carry_evidence():
 
 
 def test_impossible_apm_detected():
-    # 50 actions inside 1 second -> 3000 APM over a 5s window.
-    events = [Event(player="speedy", t=i * 0.02) for i in range(50)]
+    # 100 actions over 2 seconds -> peak 1200 APM in the 5s window (ceiling 800).
+    events = [Event(player="speedy", t=i * 0.02) for i in range(100)]
     report = analyze(events)
     speedy = _player(report, "speedy")
     codes = {f.code for f in speedy.findings}

@@ -16,9 +16,15 @@
 </div>
 
 ```bash
-pip install cognis-cheatsense
+pip install "git+https://github.com/cognis-digital/cheatsense.git"
 cheatsense scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+Cheatsense is a command-line tool that reads game session log files and automatically detects players who are likely cheating. It works by looking for telltale signs such as reaction times faster than any human can achieve, perfectly robotic click timing, instant aim-lock snaps onto targets, and action speeds no person could sustain. It produces a plain report showing each player's cheat-likelihood score and exactly which suspicious patterns triggered a flag, making it straightforward for game developers or server admins to review and act on the evidence.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -45,10 +51,56 @@ Commercial anti-cheats are black boxes; indie game studios have nothing. cheatse
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** AI & ML  ·  **JTF MERIDIAN division:** ATHENA-PRIME · SAGE
+
+**Topics:** `cognis` `ai` `llm` `machine-learning`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`cheatsense` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/cheatsense/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/cheatsense/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/cheatsense.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/cheatsense.git"  # uv
+pip install "git+https://github.com/cognis-digital/cheatsense.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/cheatsense.git
+cd cheatsense && pip install .
+```
+
+Then run:
+```sh
+cheatsense --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-cheatsense
+pip install "git+https://github.com/cognis-digital/cheatsense.git"
 cheatsense --version
 cheatsense scan .                       # scan current project
 cheatsense scan . --format json         # machine-readable

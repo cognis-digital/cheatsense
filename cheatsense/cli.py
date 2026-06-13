@@ -20,7 +20,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import asdict
 
 from cheatsense import TOOL_NAME, TOOL_VERSION, DEFAULT_THRESHOLDS
 from cheatsense.core import analyze_file
@@ -61,6 +60,12 @@ def _build_parser() -> argparse.ArgumentParser:
     scan.add_argument(
         "logfile",
         help="path to the session log (.jsonl lines, or a JSON list/object)",
+    )
+    scan.add_argument(
+        "--format",
+        choices=("table", "json"),
+        default="table",
+        help="output format (default: table)",
     )
     scan.add_argument(
         "--flag-score",

@@ -23,4 +23,3 @@
 {"player": "aimbot_alice", "t": 1.10, "action": "fire", "reaction": 0.052, "yaw": 162.0, "pitch": 1.5, "hit": true}
 {"player": "aimbot_alice", "t": 1.13, "action": "snap", "yaw": 20.0, "pitch": 0.5, "hit": true}
 {"player": "aimbot_alice", "t": 2.20, "action": "fire", "reaction": 0.061, "yaw": 22.0, "pitch": 2.0, "hit": false}
-{"player": "aimbot_alice", "t": 3.05, "action": "fire", "reaction": 0.300, "yaw": 30.0, "pitch": 1.0, "hit": true}
