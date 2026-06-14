@@ -34,3 +34,6 @@ cheatsense = "cheatsense.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["cheatsense"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
