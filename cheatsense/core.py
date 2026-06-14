@@ -121,18 +121,30 @@ def _coerce_event(obj: dict[str, Any], line_no: int) -> Event:
         raise ValueError(f"event #{line_no} is not an object: {obj!r}")
     if "player" not in obj:
         raise ValueError(f"event #{line_no} missing required 'player'")
+    if not isinstance(obj.get("player"), (str, int, float, bool)):
+        raise ValueError(
+            f"event #{line_no} 'player' must be a scalar, got: {obj['player']!r}"
+        )
     if "t" not in obj:
         raise ValueError(f"event #{line_no} missing required 't' (timestamp)")
     try:
         t = float(obj["t"])
     except (TypeError, ValueError):
         raise ValueError(f"event #{line_no} has non-numeric 't': {obj['t']!r}")
+    if not math.isfinite(t):
+        raise ValueError(f"event #{line_no} 't' must be a finite number, got: {t!r}")
 
     def _optfloat(key: str) -> float | None:
         v = obj.get(key)
         if v is None:
             return None
-        return float(v)
+        try:
+            result = float(v)
+        except (TypeError, ValueError):
+            raise ValueError(
+                f"event #{line_no} field '{key}' has non-numeric value: {v!r}"
+            )
+        return result
 
     return Event(
         player=str(obj["player"]),
@@ -426,7 +438,22 @@ def analyze_file(
     path: str,
     thresholds: dict[str, float] | None = None,
 ) -> AnalysisReport:
-    """Read a session log file and analyze it."""
-    with open(path, "r", encoding="utf-8") as fh:
-        text = fh.read()
+    """Read a session log file and analyze it.
+
+    Raises:
+        FileNotFoundError: if *path* does not exist.
+        PermissionError: if the file cannot be read.
+        ValueError: if the file content cannot be decoded or parsed.
+    """
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            text = fh.read()
+    except UnicodeDecodeError as exc:
+        raise ValueError(
+            f"file {path!r} is not valid UTF-8 text: {exc}"
+        ) from exc
+    except (FileNotFoundError, PermissionError):
+        raise
+    except OSError as exc:
+        raise OSError(f"cannot read {path!r}: {exc}") from exc
     return analyze(parse_events(text), thresholds)

@@ -133,23 +133,48 @@ def _render_table(report) -> str:
     return "\n".join(lines)
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = _build_parser()
-    args = parser.parse_args(argv)
+def _validate_thresholds(args, parser: argparse.ArgumentParser) -> dict:
+    """Validate CLI threshold arguments and return a thresholds dict.
 
-    thresholds = {
+    Calls parser.error() (which exits 2) on out-of-range values so the user
+    gets a helpful usage message instead of a silent bad result.
+    """
+    if not (0.0 <= args.flag_score <= 100.0):
+        parser.error(
+            f"--flag-score must be in 0..100, got {args.flag_score}"
+        )
+    if args.min_reaction_ms < 0:
+        parser.error(
+            f"--min-reaction-ms must be >= 0, got {args.min_reaction_ms}"
+        )
+    if args.max_apm <= 0:
+        parser.error(
+            f"--max-apm must be > 0, got {args.max_apm}"
+        )
+    if args.max_interval_cv < 0:
+        parser.error(
+            f"--max-interval-cv must be >= 0, got {args.max_interval_cv}"
+        )
+    return {
         "flag_score": args.flag_score,
         "min_reaction_s": args.min_reaction_ms / 1000.0,
         "max_apm": args.max_apm,
         "max_interval_cv": args.max_interval_cv,
     }
 
+
+def main(argv: list[str] | None = None) -> int:
+    parser = _build_parser()
+    args = parser.parse_args(argv)
+
+    thresholds = _validate_thresholds(args, parser)
+
     try:
         report = analyze_file(args.logfile, thresholds)
     except FileNotFoundError:
         print(f"{TOOL_NAME}: error: no such file: {args.logfile}", file=sys.stderr)
         return 2
-    except ValueError as exc:
+    except (ValueError, OSError) as exc:
         print(f"{TOOL_NAME}: error: {exc}", file=sys.stderr)
         return 2
 
