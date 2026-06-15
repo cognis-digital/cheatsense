@@ -26,7 +26,7 @@ def test_exports():
 def test_parse_jsonl_demo():
     with open(DEMO, encoding="utf-8") as fh:
         events = parse_events(fh.read())
-    assert len(events) == 25
+    assert len(events) == 26
     assert all(isinstance(e, Event) for e in events)
     players = {e.player for e in events}
     assert players == {"honest_hank", "bot_betty", "aimbot_alice"}
@@ -54,7 +54,7 @@ def _player(report, name):
 
 def test_analyze_demo_flags_cheaters_not_honest():
     report = analyze_file(DEMO)
-    assert report.total_events == 25
+    assert report.total_events == 26
     assert report.flagged_count == 2
 
     hank = _player(report, "honest_hank")

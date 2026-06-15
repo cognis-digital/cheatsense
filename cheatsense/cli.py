@@ -62,6 +62,12 @@ def _build_parser() -> argparse.ArgumentParser:
         "logfile",
         help="path to the session log (.jsonl lines, or a JSON list/object)",
     )
+    scan.add_argument(                       # also accept --format after the subcommand
+        "--format",
+        choices=("table", "json"),
+        default=argparse.SUPPRESS,           # don't clobber the global --format when absent
+        help="output format (default: table)",
+    )
     scan.add_argument(
         "--flag-score",
         type=float,

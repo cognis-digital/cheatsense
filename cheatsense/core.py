@@ -307,7 +307,14 @@ def _check_impossible_apm(events, th) -> list[Finding]:
         while ts[i] - ts[j] > window:
             j += 1
         count = i - j + 1
-        apm = count / window * 60.0
+        # Rate over the actual elapsed span of the burst (not the fixed window),
+        # so a tight burst isn't diluted. Require a real burst (>=10 actions) to
+        # avoid flagging a couple of rapid events.
+        span = ts[i] - ts[j]
+        if count >= 10 and span > 0:
+            apm = count / span * 60.0
+        else:
+            apm = count / window * 60.0
         if apm > peak:
             peak = apm
             peak_at = ts[i]
