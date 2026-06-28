@@ -1,0 +1,18 @@
+$ cheatsense-emit --help
+
+usage: cheatsense [-h] [--version] [--format {table,json}] {scan} ...
+
+Anti-cheat analyzer: ingest game session input logs and flag anomalous input signatures (inhuman reaction time, robotic cadence, aim snaps, impossible APM, autoclicker intervals).
+
+positional arguments:
+  {scan}
+    scan                analyze a session log (JSONL or JSON) for cheat
+                        signatures
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
+
+example: cheatsense scan session.jsonl --format json | jq '.players[0]'

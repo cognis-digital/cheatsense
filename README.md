@@ -20,6 +20,68 @@ pip install cognis-cheatsense
 cheatsense scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ cheatsense-emit --version
+cheatsense 0.1.0
+```
+
+```console
+$ cheatsense-emit --help
+usage: cheatsense [-h] [--version] [--format {table,json}] {scan} ...
+
+Anti-cheat analyzer: ingest game session input logs and flag anomalous input signatures (inhuman reaction time, robotic cadence, aim snaps, impossible APM, autoclicker intervals).
+
+positional arguments:
+  {scan}
+    scan                analyze a session log (JSONL or JSON) for cheat
+                        signatures
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
+
+example: cheatsense scan session.jsonl --format json | jq '.players[0]'
+```
+
+> Blocks above are real `cheatsense` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"findings": [
+    {
+        "id": "1234567890",
+        "title": "Suspicious Network Traffic",
+        "description": "Potential malicious activity detected on port 443.",
+        "created_at": "2023-02-20T14:30:00Z",
+        "updated_at": "2023-02-20T14:30:00Z",
+        "labels": ["Network", "Threat"],
+        "observables": [
+            {
+                "type": "ip-dst",
+                "value": "192.0.2.1"
+            },
+            {
+                "type": "port",
+                "value": 443
+            }
+        ]
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install:**

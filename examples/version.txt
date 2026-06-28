@@ -1,0 +1,3 @@
+$ cheatsense-emit --version
+
+cheatsense 0.1.0
